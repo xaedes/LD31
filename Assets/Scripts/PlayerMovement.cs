@@ -6,12 +6,14 @@ public class PlayerMovement : MonoBehaviour
 	Animator anim;                      // Reference to the animator component.
 	Vector3 movement;
 	public float speed = 4f;
+	Quaternion targetRotation;
 
 	// Use this for initialization
 	void Awake()
 	{
 		// Set up references.
 		anim = GetComponent <Animator>();
+		targetRotation = transform.rotation;
 	}
 	
 	void FixedUpdate()
@@ -44,18 +46,24 @@ public class PlayerMovement : MonoBehaviour
 		if (Mathf.Abs(h) > 1e-3 || Mathf.Abs(v) > 1e-3) {
 			if (Mathf.Abs(h) > Mathf.Abs(v)) {
 				if (h > 0) {
-					transform.rotation = Quaternion.AngleAxis(90, Vector3.up);
+					// right
+					targetRotation = Quaternion.AngleAxis(90, Vector3.up);
 				} else {
-					transform.rotation = Quaternion.AngleAxis(270, Vector3.up);
+					//left
+					targetRotation = Quaternion.AngleAxis(270, Vector3.up);
 				}
 			} else {
 				if (v > 0) {
-					transform.rotation = Quaternion.AngleAxis(0, Vector3.up);
+					// top
+					targetRotation = Quaternion.AngleAxis(0, Vector3.up);
 				} else {
-					transform.rotation = Quaternion.AngleAxis(180, Vector3.up);
+					// down
+					targetRotation = Quaternion.AngleAxis(180, Vector3.up);
 				}
 			}
 		}
+		transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 10 * Time.deltaTime);
+
 	}
 
 	void Animating(float h, float v)
