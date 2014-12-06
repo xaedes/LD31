@@ -5,8 +5,11 @@ public class PlayerMovement : MonoBehaviour
 {
 	Animator anim;                      // Reference to the animator component.
 	Vector3 movement;
-	public float speed = 4f;
+	public float speed = 15f;
+	public float rotationSpeed = 10f;
 	Quaternion targetRotation;
+	float blocksize = 4f;
+	Rigidbody playerRigidbody;          // Reference to the player's rigidbody.
 
 	// Use this for initialization
 	void Awake()
@@ -14,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
 		// Set up references.
 		anim = GetComponent <Animator>();
 		targetRotation = transform.rotation;
+		playerRigidbody = GetComponent <Rigidbody>();
 	}
 	
 	void FixedUpdate()
@@ -38,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
 		// Move the player to it's current position plus the movement.
 		movement += (new Vector3(h, 0f, v)).normalized * speed * Time.deltaTime;
 
-		transform.position += movement;
+		playerRigidbody.MovePosition(transform.position + movement);
 	}
 
 	void Turning(float h, float v)
@@ -62,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
 				}
 			}
 		}
-		transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 10 * Time.deltaTime);
+		playerRigidbody.MoveRotation(Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime));
 
 	}
 
