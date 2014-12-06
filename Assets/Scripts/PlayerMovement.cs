@@ -14,12 +14,6 @@ public class PlayerMovement : MonoBehaviour
 		anim = GetComponent <Animator>();
 	}
 	
-	// Update is called once per frame
-	void Update()
-	{
-//		transform.rotation.SetLookRotation(movement, Vector3.up);
-	}
-
 	void FixedUpdate()
 	{
 		// Store the input axes.
@@ -40,7 +34,6 @@ public class PlayerMovement : MonoBehaviour
 	void Move(float h, float v)
 	{
 		// Move the player to it's current position plus the movement.
-
 		movement += (new Vector3(h, 0f, v)).normalized * speed * Time.deltaTime;
 
 		transform.position += movement;
@@ -63,9 +56,6 @@ public class PlayerMovement : MonoBehaviour
 				}
 			}
 		}
-//		transform.rotation.SetLookRotation(new Vector3(h, 0, v), Vector3.up);
-//		transform.rotation.SetLookRotation(new Vector3(h, 0, v), Vector3.up);
-//		transform.rotation = Quaternion.FromToRotation(Vector3.zero, new Vector3(h, 0, v));
 	}
 
 	void Animating(float h, float v)
