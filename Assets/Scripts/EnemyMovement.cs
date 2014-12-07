@@ -52,7 +52,7 @@ public class EnemyMovement : MonoBehaviour {
 
 
 		if(ns.Length > 0) {
-			target = ns.MaxBy(n => values["fart",Grid.index(n)]);
+			target = ns.MinBy(n => values["fart",Grid.index(n)]);
 //			target = ns[Random.Range(0,ns.Length-1)];
 		}
 	}
