@@ -52,6 +52,7 @@ public class Farts : MonoBehaviour
 
 	public void OnGridMove()
 	{
+		if(values == null) return;
 		int idx = Grid.index(this.gameObject);
 		values ["fart", idx] += 1;
 		Diffuse();

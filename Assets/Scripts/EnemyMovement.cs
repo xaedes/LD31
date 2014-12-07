@@ -33,9 +33,6 @@ public class EnemyMovement : MonoBehaviour {
 		Animating();
 		if(movement.magnitude < stopOnDistance) {
 			SelectTarget();
-			Debug.Log("SelectTarget");
-		} else {
-			Debug.Log(movement);
 		}
 	}
 

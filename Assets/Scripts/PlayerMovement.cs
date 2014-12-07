@@ -86,4 +86,6 @@ public class PlayerMovement : MonoBehaviour
 		anim.SetBool("IsDead", true);
 		enabled = false;
 	}
+
+
 }
