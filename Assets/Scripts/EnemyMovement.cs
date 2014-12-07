@@ -9,6 +9,7 @@ public class EnemyMovement : MonoBehaviour {
 
 	Vector3 target;
 	Vector3 movement;
+	Grid grid;
 
 	const float epsilon = 1e-2f;
 
@@ -18,6 +19,7 @@ public class EnemyMovement : MonoBehaviour {
 		anim = GetComponent <Animator>();
 		rigid = GetComponent <Rigidbody>();
 		target = transform.position;
+		grid = GameObject.FindGameObjectWithTag ("Grid").GetComponent<Grid>();
 	}
 	
 	// Update is called once per frame
@@ -41,8 +43,10 @@ public class EnemyMovement : MonoBehaviour {
 	}
 
 	void SelectTarget() {
-		Vector3[] ns = Grid.Neighbors4(Grid.round(transform.position));
-		target = ns[Random.Range(0,3)];
+		Vector3[] ns = grid.EmptyNeighbors4(Grid.round(transform.position));
+		if(ns.Length > 0) {
+			target = ns[Random.Range(0,ns.Length-1)];
+		}
 	}
 
 	void Animating()

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class Grid : MonoBehaviour
 {
@@ -32,6 +33,7 @@ public class Grid : MonoBehaviour
 		neighbors [3] = of + DOWN;
 		return neighbors;
 	}
+
 
 	public static int max_columns = 1000;
 
@@ -70,5 +72,20 @@ public class Grid : MonoBehaviour
 		objects[idx].Add(obj);
 	}
 
+	public bool IsEmpty(int idx)
+	{
+		if(objects.ContainsKey(idx)) {
+			return objects[idx].Count == 0;
+		} else {
+			return true;
+		}
+	}
+
+	public Vector3[] EmptyNeighbors4(Vector3 of)
+	{
+		Vector3[] neighbors = Grid.Neighbors4(of);
+		Debug.Log(neighbors.Where(n => !IsEmpty(index(n))).Select(n => objects[index(n)][0]).ToArray().Length);
+		return neighbors.Where(n => IsEmpty(index(n))).ToArray();
+	}
 
 }
