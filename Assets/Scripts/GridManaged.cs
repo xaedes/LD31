@@ -10,24 +10,23 @@ public class GridManaged : MonoBehaviour {
 		grid = GameObject.FindGameObjectWithTag ("Grid").GetComponent<Grid>();
 		index = Grid.index(Grid.round(transform.position));
 		grid.addObject(this.gameObject);
+		this.gameObject.SendMessage("OnGridPlaced",SendMessageOptions.DontRequireReceiver);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		int newIndex = Grid.index(Grid.round(transform.position));
 		if(newIndex != index) {
-			Debug.Log("Moved");
-			Debug.Log(this.gameObject);
 			grid.removeObject(this.gameObject, index);
 			index = newIndex;
 			grid.addObject(this.gameObject);
+			this.gameObject.SendMessage("OnGridMove",SendMessageOptions.DontRequireReceiver);
 		}
 	}
 
 	public void OnDestroy() 
 	{
-		Debug.Log("Removed");
-		Debug.Log(this.gameObject);
+		this.gameObject.SendMessage("OnGridRemoved",SendMessageOptions.DontRequireReceiver);
 		grid.removeObject(this.gameObject);
 	}
 }
