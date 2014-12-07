@@ -3,12 +3,12 @@ using System.Collections;
 
 public class PlayerDropBomb : MonoBehaviour
 {
-	public float bombStrength = 20;                 // The damage inflicted by each bullet.
-	public float timeBetweenBombs = 0.15f;        	// The time between each shot.
+	public float bombStrength = 1;                  // The strength of the to-be-dropped bomb.
+	public float timeBetweenBombs = 0.15f;        	// The time between each bomb.
 
-	public Transform bomb;							// Bomb Object to drop
+	public Transform bomb;							// Bomb object to drop.
 
-	float timer;                                    // A timer to determine when to fire.
+	float timer;                                    // A timer to determine when to drop bombs.
 
 	// Update is called once per frame
 	void Update()
@@ -16,7 +16,7 @@ public class PlayerDropBomb : MonoBehaviour
 		// Add the time since Update was last called to the timer.
 		timer += Time.deltaTime;
 
-		// If the Fire1 button is being press and it's time to fire...
+		// If the Fire1 button is being press and it's time to bomb...
 		if (Input.GetButton("Fire1") && timer >= timeBetweenBombs) {
 			// ... drop the bomb
 			DropBomb();
@@ -34,6 +34,10 @@ public class PlayerDropBomb : MonoBehaviour
 		position.z = Mathf.RoundToInt(position.z / Grid.blocksize) * Grid.blocksize;
 
 		// Instantiate the bomb
-		Instantiate(bomb, position, Quaternion.identity);
+		Transform dropped = (Transform) Instantiate(bomb, position, Quaternion.identity);
+
+		// Set bomb strength
+		Exploding expl = dropped.GetComponent< Exploding >();
+		expl.bombStrength = bombStrength;
 	}
 }
