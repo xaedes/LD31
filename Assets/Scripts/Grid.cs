@@ -48,7 +48,7 @@ public class Grid : MonoBehaviour
 		return Grid.index(Grid.round(transform.position));
 	}
 	public static int index(Vector3 pos) {
-		return (int)(pos.x  +  pos.z  * max_columns);
+		return (int)(pos.x  +  pos.z * max_columns);
 	}
 
 	public void removeObject(GameObject obj)
@@ -59,7 +59,7 @@ public class Grid : MonoBehaviour
 	{
 		if(objects == null) return;
 
-		if(!objects.ContainsKey(idx)) {
+		if(objects.ContainsKey(idx)) {
 			objects[idx].Remove(obj);
 		}
 	}
