@@ -1,10 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Flaming : MonoBehaviour
 {
+	HashSet<GameObject> flamed;
+
 	void Awake()
 	{
+		flamed = new HashSet<GameObject>();
 	}
 
 	void OnTriggerEnter(Collider other)
@@ -14,7 +18,10 @@ public class Flaming : MonoBehaviour
 
 	void OnTriggerStay(Collider other)
 	{
-		other.gameObject.SendMessage("OnFlame", (Object) this, SendMessageOptions.DontRequireReceiver);
+		if (!flamed.Contains(other.gameObject)) {
+			other.gameObject.SendMessage("OnFlame", (Object)this, SendMessageOptions.DontRequireReceiver);
+			flamed.Add(other.gameObject);
+		}
 	}
 
 }
