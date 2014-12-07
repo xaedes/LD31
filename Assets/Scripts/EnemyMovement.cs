@@ -15,7 +15,8 @@ public class EnemyMovement : MonoBehaviour {
 	Grid grid;
 	HasGridValues values;
 	
-	const float epsilon = 1e-2f;
+	const float movingThreshold = 1e-2f;
+	const float stopOnDistance = 1e-1f;
 
 	// Use this for initialization
 	void Awake () {
@@ -30,8 +31,11 @@ public class EnemyMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Animating();
-		if(movement.magnitude < epsilon) {
+		if(movement.magnitude < stopOnDistance) {
 			SelectTarget();
+			Debug.Log("SelectTarget");
+		} else {
+			Debug.Log(movement);
 		}
 	}
 
@@ -39,7 +43,7 @@ public class EnemyMovement : MonoBehaviour {
 	void FixedUpdate () {
 		movement = target - transform.position;
 		movement.y = 0;
-		if(movement.magnitude > epsilon){
+		if(movement.magnitude > movingThreshold){
 			movement = movement.normalized * Time.deltaTime * speed;
 			nav.Move(movement);
 		} else {
@@ -59,7 +63,7 @@ public class EnemyMovement : MonoBehaviour {
 
 	void Animating()
 	{
-		bool walking = movement.magnitude > epsilon;
+		bool walking = movement.magnitude > movingThreshold;
 		anim.SetBool("IsWalking", walking);
 	}
 }
