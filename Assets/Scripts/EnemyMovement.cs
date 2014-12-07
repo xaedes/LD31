@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using MoreLinq;
 
 public class EnemyMovement : MonoBehaviour {
 	public float speed;
@@ -10,7 +13,8 @@ public class EnemyMovement : MonoBehaviour {
 	Vector3 target;
 	Vector3 movement;
 	Grid grid;
-
+	HasGridValues values;
+	
 	const float epsilon = 1e-2f;
 
 	// Use this for initialization
@@ -20,6 +24,7 @@ public class EnemyMovement : MonoBehaviour {
 		rigid = GetComponent <Rigidbody>();
 		target = transform.position;
 		grid = GameObject.FindGameObjectWithTag ("Grid").GetComponent<Grid>();
+		values = GetComponent<HasGridValues>();
 	}
 	
 	// Update is called once per frame
@@ -44,8 +49,11 @@ public class EnemyMovement : MonoBehaviour {
 
 	void SelectTarget() {
 		Vector3[] ns = grid.EmptyNeighbors4(Grid.round(transform.position));
+
+
 		if(ns.Length > 0) {
-			target = ns[Random.Range(0,ns.Length-1)];
+			target = ns.MaxBy(n => values["fart",Grid.index(n)]);
+//			target = ns[Random.Range(0,ns.Length-1)];
 		}
 	}
 

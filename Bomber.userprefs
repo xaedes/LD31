@@ -1,12 +1,21 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EnemyMovement.cs">
+    <Files>
+      <File FileName="Assets\Scripts\HasGridValues.cs" Line="41" Column="2" />
+      <File FileName="Assets\Scripts\GridManaged.cs" Line="25" Column="1" />
+      <File FileName="Assets\Scripts\Farts.cs" Line="16" Column="21" />
+      <File FileName="Assets\Scripts\Grid.cs" Line="60" Column="30" />
+      <File FileName="Assets\Scripts\EnemyMovement.cs" Line="55" Column="18" />
+      <File FileName="Assets\Scripts\MoreLinq\Acquire.cs" Line="18" Column="19" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Assembly-CSharp" expanded="True">
             <Node name="Scripts" expanded="True">
-              <Node name="PlayerDropBomb.cs" selected="True" />
+              <Node name="MoreLinq" expanded="True" />
+              <Node name="EnemyMovement.cs" selected="True" />
             </Node>
           </Node>
         </State>
@@ -19,6 +28,7 @@
           <Value>transform.position</Value>
           <Value>movement.magnitude</Value>
           <Value>objects[idx][0]</Value>
+          <Value>values["fart",idx]</Value>
         </State>
       </Pad>
     </Pads>
