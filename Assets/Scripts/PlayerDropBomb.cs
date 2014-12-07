@@ -30,6 +30,8 @@ public class PlayerDropBomb : MonoBehaviour
 
 		// Compute position of bomb
 		Vector3 position = transform.position;
+		position.x = Mathf.RoundToInt(position.x / Grid.blocksize) * Grid.blocksize;
+		position.z = Mathf.RoundToInt(position.z / Grid.blocksize) * Grid.blocksize;
 
 		// Instantiate the bomb
 		Instantiate(bomb, position, Quaternion.identity);
