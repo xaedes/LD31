@@ -225,6 +225,8 @@ public class TileMapEditor : Editor
 			Handles.color = new Color(0, 0, 1, 0.5f);
 			foreach (var instance in tileMap.instances)
 			{
+				if (instance == null)
+					continue;
 				var tile = instance.GetComponent<PathTile>();
 				if (tile != null)
 				{

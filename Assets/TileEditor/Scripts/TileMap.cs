@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
+
 public class TileMap : MonoBehaviour
 {
 	static Queue<PathTile> queue = new Queue<PathTile>();
@@ -13,7 +14,9 @@ public class TileMap : MonoBehaviour
 
 	public float tileSize = 1;
 	public Transform tilePrefab;
+	#if UNITY_EDITOR
 	public TileSet tileSet;
+	#endif
 	public bool connectDiagonals;
 	public bool cutCorners;
 
