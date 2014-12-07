@@ -53,7 +53,6 @@ public class Farts : MonoBehaviour
 	public void OnGridMove()
 	{
 		int idx = Grid.index(this.gameObject);
-		Debug.Log(values ["fart", idx]);
 		values ["fart", idx] += 1;
 		Diffuse();
 	}
