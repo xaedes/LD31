@@ -7,8 +7,8 @@ public class Grid : MonoBehaviour
 
 	public static Vector3 LEFT { get { return new Vector3(-Grid.blocksize,0,0); } }
 	public static Vector3 RIGHT { get { return new Vector3(+Grid.blocksize,0,0); } }
-	public static Vector3 UP { get { return new Vector3(0,-Grid.blocksize,0); } }
-	public static Vector3 DOWN { get { return new Vector3(0,+Grid.blocksize,0); } }
+	public static Vector3 UP { get { return new Vector3(0,0,-Grid.blocksize); } }
+	public static Vector3 DOWN { get { return new Vector3(0,0,+Grid.blocksize); } }
 
 
 	public static Vector3 round(Vector3 vec)
