@@ -55,6 +55,8 @@ public class Grid : MonoBehaviour
 	}
 	public void removeObject(GameObject obj, int idx)
 	{
+		if(objects == null) return;
+
 		if(!objects.ContainsKey(idx)) {
 			objects[idx].Remove(obj);
 		}
