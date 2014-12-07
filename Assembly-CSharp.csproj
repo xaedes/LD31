@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\PlayerDropBomb.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\SnapToGrid.cs" />
+     <Compile Include="Assets\Scripts\Spreading.cs" />
      <Compile Include="Assets\TileEditor\Scripts\PathTile.cs" />
      <Compile Include="Assets\TileEditor\Scripts\TileMap.cs" />
      <Compile Include="Assets\TileEditor\Scripts\TileSet.cs" />

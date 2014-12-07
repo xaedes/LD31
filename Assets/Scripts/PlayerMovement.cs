@@ -8,7 +8,6 @@ public class PlayerMovement : MonoBehaviour
 	public float speed = 15f;
 	public float rotationSpeed = 10f;
 	Quaternion targetRotation;
-	float blocksize = 4f;
 	Rigidbody playerRigidbody;          // Reference to the player's rigidbody.
 
 	// Use this for initialization

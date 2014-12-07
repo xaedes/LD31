@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerDropBomb : MonoBehaviour
 {
-	public float bombStrength = 1;                  // The strength of the to-be-dropped bomb.
+	public int bombStrength = 1;                  // The strength of the to-be-dropped bomb.
 	public float timeBetweenBombs = 0.15f;        	// The time between each bomb.
 
 	public Transform bomb;							// Bomb object to drop.
@@ -29,9 +29,7 @@ public class PlayerDropBomb : MonoBehaviour
 		timer = 0;
 
 		// Compute position of bomb
-		Vector3 position = transform.position;
-		position.x = Mathf.RoundToInt(position.x / Grid.blocksize) * Grid.blocksize;
-		position.z = Mathf.RoundToInt(position.z / Grid.blocksize) * Grid.blocksize;
+		Vector3 position = Grid.round(transform.position);
 
 		// Instantiate the bomb
 		Transform dropped = (Transform) Instantiate(bomb, position, Quaternion.identity);

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Exploding : MonoBehaviour
 {
-	public float bombStrength = 1;                 // The strength of the bomb.
+	public int bombStrength = 1;                 // The strength of the bomb.
 	public float countdown = 1;                    // Time until explode in seconds.
 	public Transform flame;                        // Flame object to spawn after explosion.
 
@@ -17,8 +17,11 @@ public class Exploding : MonoBehaviour
 	// When destroyed, spawn Flame
 	void OnDestroy()
 	{
+		audio.Play();
+
 		if (flame != null) {
-			Instantiate(flame, transform.position, Quaternion.identity);
+			Transform clone = (Transform)Instantiate(flame, transform.position, Quaternion.identity);
+			clone.GetComponent<Spreading>().range = bombStrength;
 		}
 	}
 }
