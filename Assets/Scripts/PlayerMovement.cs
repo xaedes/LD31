@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
 	public float rotationSpeed = 10f;
 	Quaternion targetRotation;
 	Rigidbody playerRigidbody;          // Reference to the player's rigidbody.
+	NavMeshAgent nav;
 
 	// Use this for initialization
 	void Awake()
@@ -17,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
 		anim = GetComponent <Animator>();
 		targetRotation = transform.rotation;
 		playerRigidbody = GetComponent <Rigidbody>();
+		nav = GetComponent <NavMeshAgent>();
 	}
 	
 	void FixedUpdate()
@@ -41,7 +43,8 @@ public class PlayerMovement : MonoBehaviour
 		// Move the player to it's current position plus the movement.
 		movement += (new Vector3(h, 0f, v)).normalized * speed * Time.deltaTime;
 
-		playerRigidbody.MovePosition(transform.position + movement);
+//		playerRigidbody.MovePosition(transform.position + movement);
+		nav.Move(movement);
 	}
 
 	void Turning(float h, float v)

@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\CameraFollower.cs" />
      <Compile Include="Assets\Scripts\DestroyAfterSound.cs" />
      <Compile Include="Assets\Scripts\Exploding.cs" />
+     <Compile Include="Assets\Scripts\FlameDestroying.cs" />
      <Compile Include="Assets\Scripts\Grid.cs" />
      <Compile Include="Assets\Scripts\LevelLoader.cs" />
      <Compile Include="Assets\Scripts\PlayerDropBomb.cs" />
