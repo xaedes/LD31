@@ -33,4 +33,15 @@ public class Spreading : MonoBehaviour
 		}
 		Destroy(this.gameObject, afterBurnTime);
 	}
+
+	void OnTriggerEnter(Collider other)
+	{
+		OnTriggerStay(other);
+	}
+	
+	void OnTriggerStay(Collider other)
+	{
+		// Collisions stop further spreading
+		range = 0;
+	}
 }
