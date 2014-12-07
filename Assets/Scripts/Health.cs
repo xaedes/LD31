@@ -15,8 +15,7 @@ public class Health : MonoBehaviour {
 	void Update () {
 		if(hp<=0) {
 			hp = 0;
-			anim.SetBool("IsDead", true);
-			GetComponent<PlayerMovement>().enabled = false;
+			gameObject.SendMessage("OnDeath",SendMessageOptions.DontRequireReceiver);
 		}
 	}
 }

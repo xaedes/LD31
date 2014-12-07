@@ -19,4 +19,8 @@ public class PlayerDropBomb : MonoBehaviour
 		}
 	}
 
+	public void OnDeath() 
+	{
+		enabled = false;
+	}
 }

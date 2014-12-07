@@ -80,4 +80,10 @@ public class PlayerMovement : MonoBehaviour
 		// Tell the animator whether or not the player is walking.
 		anim.SetBool("IsWalking", walking);
 	}
+
+	public void OnDeath() 
+	{
+		anim.SetBool("IsDead", true);
+		enabled = false;
+	}
 }
