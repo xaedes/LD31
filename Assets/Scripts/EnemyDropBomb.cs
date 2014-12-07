@@ -1,22 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerDropBomb : MonoBehaviour
+public class EnemyDropBomb : MonoBehaviour
 {
 	public DropBomb dropBomb;							
-
-	void Awake() 
+	
+	void Awake()
 	{
 		dropBomb = GetComponent<DropBomb>();
+	
 	}
-
+	
 	// Update is called once per frame
 	void Update()
 	{
-		// If the Fire1 button is being pressed,  it's time to bomb...
-		if (Input.GetButton("Fire1")) {
+		if(Random.Range(0f,1f) < 0.01f) {
 			dropBomb.Drop();
 		}
 	}
-
 }
