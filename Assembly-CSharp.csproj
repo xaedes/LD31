@@ -52,9 +52,11 @@
      <Compile Include="Assets\Scripts\EnemyDropBomb.cs" />
      <Compile Include="Assets\Scripts\EnemyMovement.cs" />
      <Compile Include="Assets\Scripts\Exploding.cs" />
+     <Compile Include="Assets\Scripts\Farts.cs" />
      <Compile Include="Assets\Scripts\FlameDestroying.cs" />
      <Compile Include="Assets\Scripts\Grid.cs" />
      <Compile Include="Assets\Scripts\GridManaged.cs" />
+     <Compile Include="Assets\Scripts\HasGridValues.cs" />
      <Compile Include="Assets\Scripts\LevelLoader.cs" />
      <Compile Include="Assets\Scripts\PlayerDropBomb.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
