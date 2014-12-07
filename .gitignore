@@ -1,3 +1,5 @@
 Library/*
 Builds/*
 Temp/*
+*.userprefs
+*.csproj
