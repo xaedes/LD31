@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class LevelLoader : MonoBehaviour
 {
@@ -13,11 +14,19 @@ public class LevelLoader : MonoBehaviour
 	public Transform highlightTargetCell;
 	public Transform spawn;
 	public Transform portal;
+	public Transform text;
 
-	GameObject instantiateAsChild(Transform template, Vector3 position, Quaternion rotation) {
+	public List<Transform> texts = new List<Transform>();
+
+	public GameObject InstantiateAsChild(Transform template, Vector3 position, Quaternion rotation) {
 		GameObject a = ((Transform)Instantiate(template, position, rotation)).gameObject;
 		a.transform.parent = transform;
 		return a;
+	}
+
+	public Vector3 Pos(int i, int j)
+	{
+		return new Vector3(i * Grid.blocksize, 0, -j * Grid.blocksize);
 	}
 
     public void LoadLevel(string map)
@@ -25,37 +34,40 @@ public class LevelLoader : MonoBehaviour
 		var lines = map.Split('\n');
 		int height = lines.Length;
 		
-		float blocksize = 4f;
 		GameObject a,b;
 		for (int j = 0; j < height; j++) {
 			int width = lines [j].Length;
 			for (int i = 0; i < width; i++) {
-				Vector3 pos = new Vector3(i * blocksize, 0, -j * blocksize);
+				Vector3 pos = Pos(i,j);
 				switch (lines [j] [i]) {
 					case 'w':
-						instantiateAsChild(wall, pos, Quaternion.identity);
+						InstantiateAsChild(wall, pos, Quaternion.identity);
 						break;
 					case 'A':
-						a = instantiateAsChild(player, pos, Quaternion.identity); 
-						b = instantiateAsChild(highlightTargetCell, pos, Quaternion.identity);
+						a = InstantiateAsChild(player, pos, Quaternion.identity); 
+						b = InstantiateAsChild(highlightTargetCell, pos, Quaternion.identity);
 						b.GetComponent<GridPositionOf>().target = a.transform;
 						break;
 					case 'b':
-						instantiateAsChild(box, pos, Quaternion.identity); 
+						InstantiateAsChild(box, pos, Quaternion.identity); 
 						break;
 					case 'F':
-						instantiateAsChild(flame, pos, Quaternion.identity); 
+						InstantiateAsChild(flame, pos, Quaternion.identity); 
 						break;
 					case 'B':
-						instantiateAsChild(bomb, pos, Quaternion.identity); 
+						InstantiateAsChild(bomb, pos, Quaternion.identity); 
 						break;
 					case 's':
-						a = instantiateAsChild(spawn, pos, Quaternion.identity); 
+						a = InstantiateAsChild(spawn, pos, Quaternion.identity); 
 						a.GetComponent<EnemySpawn>().enemy = enemy;
 						break;
 					case 'P':
-						a = instantiateAsChild(portal, pos, Quaternion.identity); 
+						a = InstantiateAsChild(portal, pos, Quaternion.identity); 
 						//						a.GetComponent<EnemySpawn>().enemy = enemy;
+						break;
+					case 't':
+						a = InstantiateAsChild(text, pos, Quaternion.identity); 
+						texts.Add(a.transform);
 						break;
 					default:
 						break;
@@ -70,7 +82,7 @@ public class LevelLoader : MonoBehaviour
 		foreach (Transform child in transform) {
 			GameObject.Destroy(child.gameObject);
 		}
-
+		texts.Clear();
 	}
 }
 

@@ -12,18 +12,22 @@ public class Level1 : MonoBehaviour
 		lvl = GetComponent<LevelLoader>();
 		string map = "" +
 			"wwwwwwwwww\n" +
-			"wP    bbsw\n" +
-			"wwwwwww bw\n" +
-			"w       bw\n" +
 			"w        w\n" +
-			"w       bw\n" +
-			"wb bb   bw\n" +
-			"w  Ab    w\n" +
-			"w  bb    w\n" +
-			"wP   b   w\n" +
+			"w        w\n" +
+			"w        w\n" +
+			"w        w\n" +
+			"w        w\n" +
+			"w        w\n" +
+			"w   t    w\n" +
+			"w  tAt   w\n" +
+			"w   t    w\n" +
 			"wwwwwwwwww\n";
 		lvl.LoadLevel(map);
-		
+		int k = 0;
+		lvl.texts[k++].GetComponentInChildren<TextMesh>().text = "W";
+		lvl.texts[k++].GetComponentInChildren<TextMesh>().text = "A";
+		lvl.texts[k++].GetComponentInChildren<TextMesh>().text = "D";
+		lvl.texts[k++].GetComponentInChildren<TextMesh>().text = "S";
 	}
 	public void NextLevel() 
 	{

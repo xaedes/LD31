@@ -62,6 +62,7 @@ MonoBehaviour:
   highlightTargetCell: {fileID: 400002, guid: 2a9e162c95e9f00479765d6cfb3d2fe4, type: 2}
   spawn: {fileID: 400000, guid: 84a8bf58d56d0b44ab2ac4387f2d4b2c, type: 2}
   portal: {fileID: 400002, guid: 3f0188653c91b6146b5d0cec64b38d57, type: 2}
+  text: {fileID: 400000, guid: d1f1b32da30f36641a628c8fc7465515, type: 2}
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1

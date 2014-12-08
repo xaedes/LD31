@@ -19,7 +19,10 @@ public class CameraFollower : MonoBehaviour
 
 	void FindTarget()
 	{
-		target = GameObject.FindGameObjectWithTag("Player").transform;
+		GameObject t = GameObject.FindGameObjectWithTag("Player");
+		if (t != null) {
+			target = t.transform;
+		}
 		
 	}
 

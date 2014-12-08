@@ -11,16 +11,16 @@ public class Level2 : MonoBehaviour
 	{
 		lvl = GetComponent<LevelLoader>();
 		string map = ""+
-				"wwwwwwwwww\n"+
-				"w      P w\n"+
-				"w        w\n"+
-				"w        w\n"+
-				"w        w\n"+
-				"w        w\n"+
-				"w        w\n"+
-				"w        w\n"+
-				"w    A   w\n"+
-				"w        w\n"+
+				"wwwwwwwwww\n" +
+				"wP    bbsw\n" +
+				"wwwwwww bw\n" +
+				"w       bw\n" +
+				"w        w\n" +
+				"w       bw\n" +
+				"wb bb   bw\n" +
+				"w  Ab    w\n" +
+				"w  bb    w\n" +
+				"wP   b   w\n" +
 				"wwwwwwwwww\n";
 
 		lvl.LoadLevel(map);
