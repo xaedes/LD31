@@ -28,6 +28,7 @@ public class Level1 : MonoBehaviour
 	public void NextLevel() 
 	{
 		lvl.DestroyChildren();
+		gameObject.tag = "";
 		GameObject.Destroy(gameObject);
 		Instantiate(nextLevel, transform.position, transform.rotation);
 	}
