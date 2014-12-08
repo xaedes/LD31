@@ -23,9 +23,14 @@ public class PlayerHealth : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		rectTransform.sizeDelta = Vector2.Lerp(
+		if (player == null) {
+			player = GameObject.FindGameObjectWithTag("Player");
+		}
+		if (player != null) {
+			rectTransform.sizeDelta = Vector2.Lerp(
 			rectTransform.sizeDelta, 
 		    originalSize + sizePerHP * player.GetComponent<Health>().hp,
 		    2.5f * Time.deltaTime);
+		}
 	}
 }

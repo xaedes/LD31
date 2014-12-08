@@ -21,6 +21,7 @@ public class Spreading : MonoBehaviour
 				for (int i =0; i < ns.Length; i++) {
 					Vector3 position = ns [i];
 					GameObject clone = (GameObject)Instantiate(this.gameObject, position, Quaternion.identity);
+					clone.transform.parent = transform.parent;
 					Spreading spreading = clone.GetComponent<Spreading>();
 					spreading.range = range - 1;
 					spreading.predefinedDirection = i;
@@ -28,6 +29,7 @@ public class Spreading : MonoBehaviour
 			} else {
 				Vector3 position = ns [predefinedDirection];
 				GameObject clone = (GameObject)Instantiate(this.gameObject, position, Quaternion.identity);
+				clone.transform.parent = transform.parent;
 				clone.GetComponent<Spreading>().range = range - 1;
 			}
 		}

@@ -12,6 +12,6 @@ public class ScoreOnDestroy : MonoBehaviour
 	}
 	void OnDestroy()
 	{
-		score.score += scoreChange;
+		GameObject.FindGameObjectWithTag("Score").GetComponent<ScoreManager>().score += scoreChange;
 	}
 }

@@ -28,6 +28,7 @@ public class DropBomb : MonoBehaviour
 		
 			// Instantiate the bomb
 			Transform dropped = (Transform)Instantiate(bomb, position, Quaternion.identity);
+			dropped.transform.parent = transform.parent;
 		
 			// Set bomb strength
 			Exploding expl = dropped.GetComponent< Exploding >();

@@ -19,8 +19,8 @@ public class EnemySpawn : MonoBehaviour
 		if (enemy != null) {
 			timer += Time.deltaTime;
 			if (timer > interval) {
-				Instantiate(enemy, transform.position, Quaternion.identity);
-			
+				Transform spawned = (Transform)Instantiate(enemy, transform.position, Quaternion.identity);
+				spawned.parent = transform.parent;
 				timer = 0;
 			}
 		}
