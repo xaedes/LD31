@@ -13,7 +13,7 @@ public class LevelLoader : MonoBehaviour
 	public Transform flame;
 
 	// Use this for initialization
-	void Start()
+	void Awake()
 	{
 		text = GetComponent <Text>();
 
