@@ -12,6 +12,7 @@ public class LevelLoader : MonoBehaviour
 	public Transform enemy;
 	public Transform flame;
 	public Transform highlightTargetCell;
+	public Transform spawn;
 
 	// Use this for initialization
 	void Awake()
@@ -46,8 +47,10 @@ public class LevelLoader : MonoBehaviour
 					case 'B':
 						Instantiate(bomb, pos, Quaternion.identity);
 						break;
-					case 'E':
-						Instantiate(enemy, pos, Quaternion.identity);
+					case 's':
+						GameObject s = ((Transform)Instantiate(spawn, pos, Quaternion.identity)).gameObject;
+						s.GetComponent<EnemySpawn>().enemy = enemy;
+						break;
 						break;
 					default:
 						break;

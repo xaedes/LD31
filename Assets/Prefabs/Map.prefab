@@ -63,6 +63,7 @@ MonoBehaviour:
   enemy: {fileID: 400004, guid: 97d092515de0f764dadbd9549b6cab0b, type: 2}
   flame: {fileID: 400002, guid: da7f4e59f99d20b428b4072986e5e47c, type: 2}
   highlightTargetCell: {fileID: 400002, guid: 2a9e162c95e9f00479765d6cfb3d2fe4, type: 2}
+  spawn: {fileID: 400000, guid: 84a8bf58d56d0b44ab2ac4387f2d4b2c, type: 2}
 --- !u!222 &22200000
 CanvasRenderer:
   m_ObjectHideFlags: 1
