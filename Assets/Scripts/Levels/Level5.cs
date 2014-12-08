@@ -5,6 +5,8 @@ public class Level5 : BaseLevel
 {
 	void Start()
 	{
+		GameObject.FindGameObjectWithTag("HUD").BroadcastMessage("StartLevel");
+		
 		lvl = GetComponent<LevelLoader>();
 		string map = "" +
 			"wwwwwwwwww\n" +
@@ -14,7 +16,7 @@ public class Level5 : BaseLevel
 			"wbbbbbbbbw\n" +
 			"w h    h w\n" +
 			"wwwwLwwwww\n" +
-			"w   t  h w\n" +
+			"w h t  h w\n" +
 			"wbbbbbbbbw\n" +
 			"w   A    w\n" +
 			"wwwwwwwwww\n";

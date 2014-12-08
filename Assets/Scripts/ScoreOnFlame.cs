@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ScoreOnDestroy : MonoBehaviour
+public class ScoreOnFlame : MonoBehaviour
 {
 	public int scoreChange;
 	ScoreManager score;
@@ -11,7 +11,7 @@ public class ScoreOnDestroy : MonoBehaviour
 		score = GameObject.FindGameObjectWithTag("Score").GetComponent<ScoreManager>();
 	}
 
-	void OnDestroy()
+	void OnFlame()
 	{
 		GameObject o = GameObject.FindGameObjectWithTag("Score");
 		if (o != null) {

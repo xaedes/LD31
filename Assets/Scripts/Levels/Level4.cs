@@ -5,6 +5,8 @@ public class Level4 : BaseLevel
 {
 	void Start()
 	{
+		GameObject.FindGameObjectWithTag("HUD").BroadcastMessage("StartLevel");
+		
 		lvl = GetComponent<LevelLoader>();
 		string map = "" +
 			"wwwwwwwwww\n" +

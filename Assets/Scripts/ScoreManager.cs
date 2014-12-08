@@ -15,5 +15,7 @@ public class ScoreManager : MonoBehaviour {
 		text.text = "" + score;
 	}
 
-
+	void StartLevel() {
+		score = 0;
+	}
 }
