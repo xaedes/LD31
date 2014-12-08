@@ -11,6 +11,7 @@ public class LevelLoader : MonoBehaviour
 	public Transform bomb;
 	public Transform enemy;
 	public Transform flame;
+	public Transform highlightTargetCell;
 
 	// Use this for initialization
 	void Awake()
@@ -32,7 +33,9 @@ public class LevelLoader : MonoBehaviour
 						Instantiate(wall, pos, Quaternion.identity);
 						break;
 					case 'A':
-						Instantiate(player, pos, Quaternion.identity);
+						GameObject p = ((Transform)Instantiate(player, pos, Quaternion.identity)).gameObject;
+						GameObject b = ((Transform)Instantiate(highlightTargetCell, pos, Quaternion.identity)).gameObject;
+						b.GetComponent<GridPositionOf>().target = p.transform;
 						break;
 					case 'b':
 						Instantiate(box, pos, Quaternion.identity);
@@ -52,6 +55,7 @@ public class LevelLoader : MonoBehaviour
 
 			}
 		}
+
 	}
     
 	// Update is called once per frame
