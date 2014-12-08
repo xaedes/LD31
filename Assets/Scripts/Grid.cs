@@ -57,7 +57,7 @@ public class Grid : MonoBehaviour
 	{
 		int x = idx % max_columns;
 		int y = (idx - x) / max_columns;
-		return new Vector3(x,0f,y) * blocksize;
+		return new Vector3(x, 0f, y) * blocksize;
 	}
 
 	public void removeObject(GameObject obj)
@@ -101,6 +101,15 @@ public class Grid : MonoBehaviour
 		objects [idx].Add(obj);
 	}
 
+	public bool IsWalkable(int idx)
+	{
+		if (!IsEmpty(idx)) {
+			return objects [idx].Where(o => o.GetComponent<NotWalkable>() != null).Count()==0;
+		} else {
+			return true;
+		}
+	}
+
 	public bool IsEmpty(int idx)
 	{
 		if (objects.ContainsKey(idx)) {
@@ -115,8 +124,6 @@ public class Grid : MonoBehaviour
 		Vector3[] neighbors = Grid.Neighbors4(of);
 		return neighbors.Where(n => IsEmpty(index(n))).ToArray();
 	}
-
-
 
 	public float Width { 
 		get {
@@ -141,6 +148,7 @@ public class Grid : MonoBehaviour
 			return minY;
 		}
 	}
+
 	public float MaxX { 
 		get {
 			return maxX;
@@ -150,6 +158,17 @@ public class Grid : MonoBehaviour
 	public float MaxY { 
 		get {
 			return maxY;
+		}
+	}
+
+	public List<GameObject> this [int idx] {
+		get {
+			if (objects.ContainsKey(idx))
+				return objects [idx];
+			else {
+				objects [idx] = new List<GameObject>();
+				return objects [idx];
+			}
 		}
 	}
 }

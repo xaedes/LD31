@@ -51,14 +51,14 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 94c6d7a19b2f91e4b9a87e638ee5f550, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   wall: {fileID: 400002, guid: 7987dd956514dde45a568884e9aa53ab, type: 2}
   player: {fileID: 400012, guid: e4759b7577b134c45ad3445f1c938787, type: 2}
-  box: {fileID: 0}
+  box: {fileID: 400002, guid: d0059ab152795b54fbc2dd90b40e842c, type: 2}
   bomb: {fileID: 400006, guid: 3129604da9166a7428f76a858af50ae8, type: 2}
   enemy: {fileID: 400004, guid: 97d092515de0f764dadbd9549b6cab0b, type: 2}
   flame: {fileID: 400002, guid: da7f4e59f99d20b428b4072986e5e47c, type: 2}

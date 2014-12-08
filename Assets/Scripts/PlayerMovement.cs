@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using MoreLinq;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -8,8 +11,7 @@ public class PlayerMovement : MonoBehaviour
 	public float speed = 15f;
 	public float rotationSpeed = 10f;
 	Quaternion targetRotation;
-	Rigidbody playerRigidbody;          // Reference to the player's rigidbody.
-	NavMeshAgent nav;
+	Grid grid;
 
 	// Use this for initialization
 	void Awake()
@@ -17,8 +19,7 @@ public class PlayerMovement : MonoBehaviour
 		// Set up references.
 		anim = GetComponent <Animator>();
 		targetRotation = transform.rotation;
-		playerRigidbody = GetComponent <Rigidbody>();
-		nav = GetComponent <NavMeshAgent>();
+		grid = GameObject.FindGameObjectWithTag("Grid").GetComponent<Grid>();
 	}
 	
 	void FixedUpdate()
@@ -43,8 +44,14 @@ public class PlayerMovement : MonoBehaviour
 		// Move the player to it's current position plus the movement.
 		movement += (new Vector3(h, 0f, v)).normalized * speed * Time.deltaTime;
 
-//		playerRigidbody.MovePosition(transform.position + movement);
-		nav.Move(movement);
+
+		Vector3 update = transform.position + movement;
+		int updatedIndex = Grid.index(Grid.round(update));
+		// avoid collisions
+		bool collision = false;
+		if(updatedIndex == GetComponent<GridManaged>().Index || grid.IsWalkable(updatedIndex)) {
+			transform.position = update;
+		}
 	}
 
 	void Turning(float h, float v)
@@ -68,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
 				}
 			}
 		}
-		playerRigidbody.MoveRotation(Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime));
+		transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
 	}
 
@@ -81,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
 		anim.SetBool("IsWalking", walking);
 	}
 
-	public void OnDeath() 
+	public void OnDeath()
 	{
 		anim.SetBool("IsDead", true);
 		enabled = false;

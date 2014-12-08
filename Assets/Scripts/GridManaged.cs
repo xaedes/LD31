@@ -29,4 +29,12 @@ public class GridManaged : MonoBehaviour {
 		this.gameObject.SendMessage("OnGridRemoved",SendMessageOptions.DontRequireReceiver);
 		grid.removeObject(this.gameObject);
 	}
+
+	public int Index
+	{
+		get 
+		{
+			return index;
+		}
+	}
 }

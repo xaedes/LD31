@@ -50,7 +50,7 @@ public class EnemyMovement : MonoBehaviour
 				length = movement.magnitude;
 			}
 			movement = movement.normalized * length;
-			nav.Move(movement);
+			transform.position += movement;
 		} else {
 			movement = Vector3.zero;
 		}
