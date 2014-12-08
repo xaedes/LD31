@@ -21,27 +21,17 @@ public class Level5 : BaseLevel
 		
 		lvl.LoadLevel(map);
 		int k = 0;
-		lvl.texts [k++].GetComponentInChildren<TextMesh>().text = "Guess you need to kill them...";
-		lvl.texts [k++].GetComponentInChildren<TextMesh>().text = "Level 6";
-		lvl.texts [k++].GetComponentInChildren<TextMesh>().text = "Unlock this";
-		for (int i = 0; i < lvl.texts.Count; i++) {
-			lvl.texts [i].gameObject.AddComponent<DestroyOnCollision>();
+		lvl.objects[lvl.text] [k++].GetComponentInChildren<TextMesh>().text = "Guess you need to kill them...";
+		lvl.objects[lvl.text] [k++].GetComponentInChildren<TextMesh>().text = "Level 6";
+		lvl.objects[lvl.text] [k++].GetComponentInChildren<TextMesh>().text = "Unlock this";
+		for (int i = 0; i < lvl.objects[lvl.text].Count; i++) {
+			lvl.objects[lvl.text] [i].gameObject.AddComponent<DestroyOnCollision>();
 		}
 		
-		GameObject[] lcks = GameObject.FindGameObjectsWithTag("Lock");
-//		UnlockWithScore uws = lcks[1].AddComponent<UnlockWithScore>();
-//		uws.MinimumScore = 20;
-		lcks[0].AddComponent<UnlockWithScore>().MinimumScore = 2;
-		lcks[1].AddComponent<UnlockWithScore>().MinimumScore = 20;
+		lvl.objects[lvl.lck][0].AddComponent<UnlockWithScore>().MinimumScore = 20;
+		lvl.objects[lvl.lck][1].AddComponent<UnlockWithScore>().MinimumScore = 2;
 
-		GameObject spawn = GameObject.FindGameObjectWithTag("Spawn");
-		spawn.GetComponent<SpawnPoint>().spawn = lvl.harmlessEnemy;
+		lvl.objects[lvl.spawn][0].GetComponent<SpawnPoint>().spawn = lvl.harmlessEnemy;
 
-//		foreach(GameObject child in GameObject.FindGameObjectsWithTag("Enemy")){
-//			EnemyDropBomb foo = child.GetComponent<EnemyDropBomb>();
-//			if( foo != null) {
-//				Destroy(foo);
-//			}
-//		}
 	}
 }

@@ -21,11 +21,11 @@ public class Level4 : BaseLevel
 		
 		lvl.LoadLevel(map);
 		int k = 0;
-		lvl.texts [k++].GetComponentInChildren<TextMesh>().text = "This\nis an\nenemy";
-		lvl.texts [k++].GetComponentInChildren<TextMesh>().text = "Don't die!";
-		lvl.texts [k++].GetComponentInChildren<TextMesh>().text = "Level 5";
-		for (int i = 0; i < lvl.texts.Count; i++) {
-			lvl.texts [i].gameObject.AddComponent<DestroyOnCollision>();
+		lvl.objects[lvl.text] [k++].GetComponentInChildren<TextMesh>().text = "This\nis an\nenemy";
+		lvl.objects[lvl.text] [k++].GetComponentInChildren<TextMesh>().text = "Don't die!";
+		lvl.objects[lvl.text] [k++].GetComponentInChildren<TextMesh>().text = "Level 5";
+		for (int i = 0; i < lvl.objects[lvl.text].Count; i++) {
+			lvl.objects[lvl.text] [i].gameObject.AddComponent<DestroyOnCollision>();
 		}
 
 		foreach(GameObject child in GameObject.FindGameObjectsWithTag("Enemy")){

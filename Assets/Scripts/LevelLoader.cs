@@ -18,12 +18,15 @@ public class LevelLoader : MonoBehaviour
 	public Transform lck;
 	public Transform harmlessEnemy;
 
-	public List<Transform> texts = new List<Transform>();
-	public Dictionary<Transform, List<Transform>> objects = new Dictionary<Transform, List<Transform>>();
+	public Dictionary<Transform, List<GameObject>> objects = new Dictionary<Transform, List<GameObject>>();
 
 	public GameObject InstantiateAsChild(Transform template, Vector3 position, Quaternion rotation) {
 		GameObject a = ((Transform)Instantiate(template, position, rotation)).gameObject;
 		a.transform.parent = transform;
+		if(!objects.ContainsKey(template)){
+			objects[template] = new List<GameObject>();
+		}
+		objects[template].Add(a);
 		return a;
 	}
 
@@ -73,7 +76,6 @@ public class LevelLoader : MonoBehaviour
 						break;
 					case 't':
 						a = InstantiateAsChild(text, pos, Quaternion.identity); 
-						texts.Add(a.transform);
 						break;
 					case 'L':
 						a = InstantiateAsChild(lck, pos, Quaternion.identity); 
@@ -91,12 +93,13 @@ public class LevelLoader : MonoBehaviour
 
 	public void DestroyChildren()
 	{
-		foreach(Transform key in objects.Keys) {
-		}
 		foreach (Transform child in transform) {
 			GameObject.Destroy(child.gameObject);
 		}
-		texts.Clear();
+		foreach(Transform key in objects.Keys) {
+			objects[key].Clear();
+		}
+		objects.Clear();
 	}
 	
 }

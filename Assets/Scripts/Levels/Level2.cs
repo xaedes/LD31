@@ -21,10 +21,10 @@ public class Level2 : BaseLevel
 
 		lvl.LoadLevel(map);
 		int k = 0;
-		lvl.texts [k++].GetComponentInChildren<TextMesh>().text = "Click & Run!";
-		lvl.texts [k++].GetComponentInChildren<TextMesh>().text = "Level 3";
-		for (int i = 0; i < lvl.texts.Count; i++) {
-			lvl.texts [i].gameObject.AddComponent<DestroyOnCollision>();
+		lvl.objects[lvl.text] [k++].GetComponentInChildren<TextMesh>().text = "Click & Run!";
+		lvl.objects[lvl.text] [k++].GetComponentInChildren<TextMesh>().text = "Level 3";
+		for (int i = 0; i < lvl.objects[lvl.text].Count; i++) {
+			lvl.objects[lvl.text] [i].gameObject.AddComponent<DestroyOnCollision>();
 		}
 	}
 }
