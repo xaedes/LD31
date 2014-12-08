@@ -84,6 +84,7 @@ public class LevelLoader : MonoBehaviour
 		}
 		texts.Clear();
 	}
+	
 }
 
 

@@ -6,6 +6,7 @@ public class Level1 : MonoBehaviour
 	public Transform nextLevel;
 	LevelLoader lvl;
 
+
 	// Use this for initialization
 	void Start()
 	{
@@ -44,4 +45,9 @@ public class Level1 : MonoBehaviour
 		Instantiate(nextLevel, transform.position, transform.rotation);
 	}
 
+	public void RestartLevel()
+	{
+		lvl.DestroyChildren();
+		Start();
+	}
 }

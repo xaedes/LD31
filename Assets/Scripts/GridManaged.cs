@@ -31,7 +31,10 @@ public class GridManaged : MonoBehaviour
 	{
 		this.gameObject.SendMessage("OnGridRemoved", SendMessageOptions.DontRequireReceiver);
 		if (grid == null) {
-			grid = GameObject.FindGameObjectWithTag("Grid").GetComponent<Grid>();
+			GameObject g = GameObject.FindGameObjectWithTag("Grid");
+			if (g != null) {
+				grid = g.GetComponent<Grid>();
+			}
 		}
 		if (grid != null) {
 			grid.removeObject(this.gameObject);

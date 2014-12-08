@@ -13,6 +13,7 @@ public class ResetLevelAfterDeath : MonoBehaviour
 
 	void restart()
 	{
-		Application.LoadLevel(Application.loadedLevel);
+		Grid grid = GameObject.FindGameObjectWithTag("Grid").GetComponent<Grid>();
+		grid.SendMessage("RestartLevel",SendMessageOptions.DontRequireReceiver);
 	}
 }

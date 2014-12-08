@@ -39,6 +39,7 @@ public class Grid : MonoBehaviour
 
 	public void Awake()
 	{
+		gameObject.tag = "Grid";
 		objects = new Dictionary<int, List<GameObject>>();
 	}
 

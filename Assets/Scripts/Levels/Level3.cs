@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Level2 : MonoBehaviour
+public class Level3 : MonoBehaviour
 {
 	public Transform nextLevel;
 	LevelLoader lvl;
@@ -12,26 +12,26 @@ public class Level2 : MonoBehaviour
 		lvl = GetComponent<LevelLoader>();
 		string map = "" +
 			"wwwwwwwwww\n" +
-			"w   A    w\n" +
-			"w        w\n" +
-			"w        w\n" +
-			"w   t    w\n" +
-			"wwwbbbbwww\n" +
-			"w        w\n" +
-			"w   t    w\n" +
-			"w   P    w\n" +
-			"w        w\n" +
+			"wPtbbbwwww\n" +
+			"wwwwbbwwww\n" +
+			"wwwwbbwwww\n" +
+			"wwwwbbwwww\n" +
+			"wwwwbbwwww\n" +
+			"wwwwbbwwww\n" +
+			"wwwwt wwww\n" +
+			"wwwwAwwwww\n" +
+			"wwwwwwwwww\n" +
 			"wwwwwwwwww\n";
-
+		
 		lvl.LoadLevel(map);
 		int k = 0;
-		lvl.texts [k++].GetComponentInChildren<TextMesh>().text = "Click & Run!";
-		lvl.texts [k++].GetComponentInChildren<TextMesh>().text = "Level 3";
+		lvl.texts [k++].GetComponentInChildren<TextMesh>().text = "Level 4";
+		lvl.texts [k++].GetComponentInChildren<TextMesh>().text = "This\nway";
 		for (int i = 0; i < lvl.texts.Count; i++) {
 			lvl.texts [i].gameObject.AddComponent<DestroyOnCollision>();
 		}
 	}
-
+	
 	public void NextLevel()
 	{
 		lvl.DestroyChildren();
@@ -45,4 +45,3 @@ public class Level2 : MonoBehaviour
 		Start();
 	}
 }
-
