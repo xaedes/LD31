@@ -28,7 +28,7 @@ public class Level5 : BaseLevel
 			lvl.objects[lvl.text] [i].gameObject.AddComponent<DestroyOnCollision>();
 		}
 		
-		lvl.objects[lvl.lck][0].AddComponent<UnlockWithScore>().MinimumScore = 20;
+		lvl.objects[lvl.lck][0].AddComponent<UnlockWithScore>().MinimumScore = 15;
 		lvl.objects[lvl.lck][1].AddComponent<UnlockWithScore>().MinimumScore = 2;
 
 		lvl.objects[lvl.spawn][0].GetComponent<SpawnPoint>().spawn = lvl.harmlessEnemy;
