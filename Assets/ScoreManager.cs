@@ -8,12 +8,11 @@ public class ScoreManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		text = GetComponent<Text>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		text.text = "Score: " + score;
+		text.text = "" + score;
 	}
 
 
