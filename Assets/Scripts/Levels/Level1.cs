@@ -32,6 +32,8 @@ public class Level1 : MonoBehaviour
 		for(int i = 0; i < 5; i++) {
 			lvl.texts[i].gameObject.AddComponent<DestroyOnCollision>();
 		}
+		GameObject player = GameObject.FindGameObjectWithTag("Player");
+		Destroy(player.GetComponent<PlayerDropBomb>());
 	}
 	public void NextLevel() 
 	{
