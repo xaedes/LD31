@@ -10,11 +10,11 @@ public class Level3 : BaseLevel
 		lvl = GetComponent<LevelLoader>();
 		string map = "" +
 			"wwwwwwwwww\n" +
-			"wPtbbbwwww\n" +
+			"wPtb bwwww\n" +
 			"wwwwbbwwww\n" +
+			"wwww  wwww\n" +
 			"wwwwbbwwww\n" +
-			"wwwwbbwwww\n" +
-			"wwwwbbwwww\n" +
+			"wwww  wwww\n" +
 			"wwwwbbwwww\n" +
 			"wwwwt wwww\n" +
 			"wwwwAwwwww\n" +

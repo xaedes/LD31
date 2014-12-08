@@ -35,6 +35,10 @@ public class Level4 : BaseLevel
 			if( foo != null) {
 				Destroy(foo);
 			}
+			ScoreOnFlame bar = child.GetComponent<ScoreOnFlame>();
+			if( bar != null) {
+				Destroy(bar);
+			}
 		}
 	}
 }
