@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: -1376725286, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &400000
 Transform:
   m_ObjectHideFlags: 1
@@ -41,7 +41,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1edfc25b716eb4a43a43eee055a3cdf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevel: {fileID: 400000, guid: 6c319012914dac54daa0fa8a6b919d97, type: 2}
+  nextLevel: {fileID: 400000, guid: ad618f9111d46544ba50ed83bb8e54db, type: 2}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -74,6 +74,8 @@ MonoBehaviour:
   spawn: {fileID: 400000, guid: 84a8bf58d56d0b44ab2ac4387f2d4b2c, type: 2}
   portal: {fileID: 400002, guid: 3f0188653c91b6146b5d0cec64b38d57, type: 2}
   text: {fileID: 400000, guid: d1f1b32da30f36641a628c8fc7465515, type: 2}
+  lck: {fileID: 400002, guid: dbb2f150e10fcd047b3a33f17ee65f04, type: 2}
+  harmlessEnemy: {fileID: 400004, guid: 5d6877926c511ae4889ee0c0fe3cb428, type: 2}
   texts: []
 --- !u!1001 &100100000
 Prefab:

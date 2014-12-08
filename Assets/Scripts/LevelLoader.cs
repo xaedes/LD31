@@ -15,8 +15,11 @@ public class LevelLoader : MonoBehaviour
 	public Transform spawn;
 	public Transform portal;
 	public Transform text;
+	public Transform lck;
+	public Transform harmlessEnemy;
 
 	public List<Transform> texts = new List<Transform>();
+	public Dictionary<Transform, List<Transform>> objects = new Dictionary<Transform, List<Transform>>();
 
 	public GameObject InstantiateAsChild(Transform template, Vector3 position, Quaternion rotation) {
 		GameObject a = ((Transform)Instantiate(template, position, rotation)).gameObject;
@@ -57,9 +60,12 @@ public class LevelLoader : MonoBehaviour
 					case 'B':
 						InstantiateAsChild(bomb, pos, Quaternion.identity); 
 						break;
+					case 'e':
+						InstantiateAsChild(enemy, pos, Quaternion.identity); 
+						break;
 					case 's':
 						a = InstantiateAsChild(spawn, pos, Quaternion.identity); 
-						a.GetComponent<EnemySpawn>().enemy = enemy;
+						a.GetComponent<SpawnPoint>().spawn = enemy;
 						break;
 					case 'P':
 						a = InstantiateAsChild(portal, pos, Quaternion.identity); 
@@ -68,6 +74,12 @@ public class LevelLoader : MonoBehaviour
 					case 't':
 						a = InstantiateAsChild(text, pos, Quaternion.identity); 
 						texts.Add(a.transform);
+						break;
+					case 'L':
+						a = InstantiateAsChild(lck, pos, Quaternion.identity); 
+						break;
+					case 'h':
+						a = InstantiateAsChild(harmlessEnemy, pos, Quaternion.identity); 
 						break;
 					default:
 						break;
@@ -79,6 +91,8 @@ public class LevelLoader : MonoBehaviour
 
 	public void DestroyChildren()
 	{
+		foreach(Transform key in objects.Keys) {
+		}
 		foreach (Transform child in transform) {
 			GameObject.Destroy(child.gameObject);
 		}

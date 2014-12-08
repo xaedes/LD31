@@ -1,13 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Level1 : MonoBehaviour
+public class Level1 : BaseLevel
 {
-	public Transform nextLevel;
-	LevelLoader lvl;
-
-
-	// Use this for initialization
 	void Start()
 	{
 		lvl = GetComponent<LevelLoader>();
@@ -37,17 +32,4 @@ public class Level1 : MonoBehaviour
 		Destroy(player.GetComponent<PlayerDropBomb>());
 	}
 
-	public void NextLevel()
-	{
-		lvl.DestroyChildren();
-		gameObject.tag = "";
-		GameObject.Destroy(gameObject);
-		Instantiate(nextLevel, transform.position, transform.rotation);
-	}
-
-	public void RestartLevel()
-	{
-		lvl.DestroyChildren();
-		Start();
-	}
 }

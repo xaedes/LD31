@@ -1,12 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Level3 : MonoBehaviour
+public class Level3 : BaseLevel
 {
-	public Transform nextLevel;
-	LevelLoader lvl;
-	
-	// Use this for initialization
 	void Start()
 	{
 		lvl = GetComponent<LevelLoader>();
@@ -30,18 +26,5 @@ public class Level3 : MonoBehaviour
 		for (int i = 0; i < lvl.texts.Count; i++) {
 			lvl.texts [i].gameObject.AddComponent<DestroyOnCollision>();
 		}
-	}
-	
-	public void NextLevel()
-	{
-		lvl.DestroyChildren();
-		gameObject.tag = "";
-		GameObject.Destroy(gameObject);
-		Instantiate(nextLevel, transform.position, transform.rotation);
-	}
-	public void RestartLevel()
-	{
-		lvl.DestroyChildren();
-		Start();
 	}
 }

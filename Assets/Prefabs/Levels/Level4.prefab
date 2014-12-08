@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &100000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400000}
+  - 114: {fileID: 11400002}
+  - 114: {fileID: 11400004}
+  - 114: {fileID: 11400000}
+  m_Layer: 0
+  m_Name: Level4
+  m_TagString: Grid
+  m_Icon: {fileID: -1376725286, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &400000
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 42.4000015, y: 0, z: 27.1000004}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3078f3bdf7aad104f8881feae0168b36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextLevel: {fileID: 400000, guid: 3c19c95ab304f2d48902504d77370d7e, type: 2}
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 667c9d0a1d796484f8199192d22fd5d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11400004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94c6d7a19b2f91e4b9a87e638ee5f550, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wall: {fileID: 400002, guid: 7987dd956514dde45a568884e9aa53ab, type: 2}
+  player: {fileID: 400012, guid: e4759b7577b134c45ad3445f1c938787, type: 2}
+  box: {fileID: 400002, guid: d0059ab152795b54fbc2dd90b40e842c, type: 2}
+  bomb: {fileID: 400006, guid: 3129604da9166a7428f76a858af50ae8, type: 2}
+  enemy: {fileID: 400004, guid: 97d092515de0f764dadbd9549b6cab0b, type: 2}
+  flame: {fileID: 400002, guid: da7f4e59f99d20b428b4072986e5e47c, type: 2}
+  highlightTargetCell: {fileID: 400002, guid: 2a9e162c95e9f00479765d6cfb3d2fe4, type: 2}
+  spawn: {fileID: 400000, guid: 84a8bf58d56d0b44ab2ac4387f2d4b2c, type: 2}
+  portal: {fileID: 400002, guid: 3f0188653c91b6146b5d0cec64b38d57, type: 2}
+  text: {fileID: 400000, guid: d1f1b32da30f36641a628c8fc7465515, type: 2}
+  lck: {fileID: 400002, guid: dbb2f150e10fcd047b3a33f17ee65f04, type: 2}
+  harmlessEnemy: {fileID: 400004, guid: 5d6877926c511ae4889ee0c0fe3cb428, type: 2}
+  texts: []
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 100000}
+  m_IsPrefabParent: 1
+  m_IsExploded: 1

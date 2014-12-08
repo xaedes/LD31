@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemySpawn : MonoBehaviour
+public class SpawnPoint : MonoBehaviour
 {
-	public Transform enemy;
+	public Transform spawn;
 	public float interval;
 	float timer;
 
@@ -16,10 +16,10 @@ public class EnemySpawn : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (enemy != null) {
+		if (spawn != null) {
 			timer += Time.deltaTime;
 			if (timer > interval) {
-				Transform spawned = (Transform)Instantiate(enemy, transform.position, Quaternion.identity);
+				Transform spawned = (Transform)Instantiate(spawn, transform.position, Quaternion.identity);
 				spawned.parent = transform.parent;
 				timer = 0;
 			}
