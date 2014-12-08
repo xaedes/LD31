@@ -99,6 +99,9 @@ public class Grid : MonoBehaviour
 			objects.Add(idx, new List<GameObject>());
 		}
 		objects [idx].Add(obj);
+		foreach(GameObject o in objects [idx]){
+			o.SendMessage("OnGridCollision",SendMessageOptions.DontRequireReceiver);
+		}
 	}
 
 	public bool IsWalkable(int idx)
