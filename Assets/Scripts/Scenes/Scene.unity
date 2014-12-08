@@ -171,7 +171,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialTarget: {fileID: 480282887}
-  target: {fileID: 400012, guid: e4759b7577b134c45ad3445f1c938787, type: 2}
   smoothing: 5
 --- !u!1 &359551657
 GameObject:
