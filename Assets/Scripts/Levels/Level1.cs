@@ -24,18 +24,19 @@ public class Level1 : MonoBehaviour
 			"wwwwwwwwww\n";
 		lvl.LoadLevel(map);
 		int k = 0;
-		lvl.texts[k++].GetComponentInChildren<TextMesh>().text = "Level 2";
-		lvl.texts[k++].GetComponentInChildren<TextMesh>().text = "W";
-		lvl.texts[k++].GetComponentInChildren<TextMesh>().text = "A";
-		lvl.texts[k++].GetComponentInChildren<TextMesh>().text = "D";
-		lvl.texts[k++].GetComponentInChildren<TextMesh>().text = "S";
-		for(int i = 0; i < lvl.texts.Count; i++) {
-			lvl.texts[i].gameObject.AddComponent<DestroyOnCollision>();
+		lvl.texts [k++].GetComponentInChildren<TextMesh>().text = "Level 2";
+		lvl.texts [k++].GetComponentInChildren<TextMesh>().text = "W";
+		lvl.texts [k++].GetComponentInChildren<TextMesh>().text = "A";
+		lvl.texts [k++].GetComponentInChildren<TextMesh>().text = "D";
+		lvl.texts [k++].GetComponentInChildren<TextMesh>().text = "S";
+		for (int i = 0; i < lvl.texts.Count; i++) {
+			lvl.texts [i].gameObject.AddComponent<DestroyOnCollision>();
 		}
 		GameObject player = GameObject.FindGameObjectWithTag("Player");
 		Destroy(player.GetComponent<PlayerDropBomb>());
 	}
-	public void NextLevel() 
+
+	public void NextLevel()
 	{
 		lvl.DestroyChildren();
 		gameObject.tag = "";

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Level2 : MonoBehaviour 
+public class Level2 : MonoBehaviour
 {
 	public Transform nextLevel;
 	LevelLoader lvl;
@@ -10,7 +10,7 @@ public class Level2 : MonoBehaviour
 	void Start()
 	{
 		lvl = GetComponent<LevelLoader>();
-		string map = ""+
+		string map = "" +
 			"wwwwwwwwww\n" +
 			"w   A    w\n" +
 			"w        w\n" +
@@ -25,14 +25,14 @@ public class Level2 : MonoBehaviour
 
 		lvl.LoadLevel(map);
 		int k = 0;
-		lvl.texts[k++].GetComponentInChildren<TextMesh>().text = "Click & Run!";
-		lvl.texts[k++].GetComponentInChildren<TextMesh>().text = "Level 3";
-		for(int i = 0; i < lvl.texts.Count; i++) {
-			lvl.texts[i].gameObject.AddComponent<DestroyOnCollision>();
+		lvl.texts [k++].GetComponentInChildren<TextMesh>().text = "Click & Run!";
+		lvl.texts [k++].GetComponentInChildren<TextMesh>().text = "Level 3";
+		for (int i = 0; i < lvl.texts.Count; i++) {
+			lvl.texts [i].gameObject.AddComponent<DestroyOnCollision>();
 		}
 	}
 
-	public void NextLevel() 
+	public void NextLevel()
 	{
 		lvl.DestroyChildren();
 		gameObject.tag = "";
