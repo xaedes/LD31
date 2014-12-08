@@ -29,7 +29,7 @@ public class Level1 : MonoBehaviour
 		lvl.texts[k++].GetComponentInChildren<TextMesh>().text = "A";
 		lvl.texts[k++].GetComponentInChildren<TextMesh>().text = "D";
 		lvl.texts[k++].GetComponentInChildren<TextMesh>().text = "S";
-		for(int i = 0; i < 5; i++) {
+		for(int i = 0; i < lvl.texts.Count; i++) {
 			lvl.texts[i].gameObject.AddComponent<DestroyOnCollision>();
 		}
 		GameObject player = GameObject.FindGameObjectWithTag("Player");
