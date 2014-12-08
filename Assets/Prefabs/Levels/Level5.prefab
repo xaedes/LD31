@@ -25,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 42.4000015, y: 0, z: 27.1000004}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,7 +76,6 @@ MonoBehaviour:
   text: {fileID: 400000, guid: d1f1b32da30f36641a628c8fc7465515, type: 2}
   lck: {fileID: 400002, guid: dbb2f150e10fcd047b3a33f17ee65f04, type: 2}
   harmlessEnemy: {fileID: 400004, guid: 5d6877926c511ae4889ee0c0fe3cb428, type: 2}
-  texts: []
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

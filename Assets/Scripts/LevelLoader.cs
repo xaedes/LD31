@@ -72,7 +72,6 @@ public class LevelLoader : MonoBehaviour
 						break;
 					case 'P':
 						a = InstantiateAsChild(portal, pos, Quaternion.identity); 
-						//						a.GetComponent<EnemySpawn>().enemy = enemy;
 						break;
 					case 't':
 						a = InstantiateAsChild(text, pos, Quaternion.identity); 
