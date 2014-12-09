@@ -12,6 +12,7 @@ public class ScoreOnDestroy : MonoBehaviour
 	}
 	void OnDestroy()
 	{
-		score.score += scoreChange;
+		if( score != null)
+			score.score += scoreChange;
 	}
 }
